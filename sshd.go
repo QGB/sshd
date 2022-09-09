@@ -25,6 +25,11 @@ func main() {
 		_, err := os.Stat(scmd)
 		if os.IsNotExist(err) {
 			scmd="/data/data/com.termux/files/usr/bin/bash"
+			_, err := os.Stat(scmd)
+			if os.IsNotExist(err) {
+				scmd="/system/bin/sh"
+			}
+
 		}
 		/*
 		if _, err := os.Stat(scmd); errors.Is(err, os.ErrNotExist) {
